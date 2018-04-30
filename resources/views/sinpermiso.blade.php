@@ -1,0 +1,1 @@
+El usuario {{usuario}} no tiene permiso
