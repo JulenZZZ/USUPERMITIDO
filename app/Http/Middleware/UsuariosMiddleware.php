@@ -16,10 +16,9 @@ class UsuariosMiddleware
     public function handle($request, Closure $next)
     {
         $usuario->$request->get('usuario');
-        if (Permitido::where('permiso',$request->input('permiso'))!==0 ){
+        if (Permitido::where('nombreUsu',$usuario)->first()->permiso){
 
-            return view('permitido',['usuario'=>$usuario]);
-            return $next($request);
+             return $next($request);
         }else{
 
             return view('sinpermiso',['usuario'=>$usuario]);
